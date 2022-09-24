@@ -15,6 +15,7 @@ public class Robot : ItemMap{
         this.y = y;
         List<Jewel> bag = new List<Jewel>();
         map.Insert(this,x,y);
+        map.Print();
     }
     public void MoveNorth(){
         map.UpdateLayout(x,y,x,y+1);

@@ -68,7 +68,6 @@
         public static void Main() {   
             Map map = new Map(10,10);
             map.firstLevelLayout(map);
-            map.Print();
 
             Robot player = new Robot(map,0,0);
 
