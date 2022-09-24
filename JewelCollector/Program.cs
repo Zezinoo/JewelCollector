@@ -1,49 +1,28 @@
 ﻿namespace JewelCollector {
-    class Jewel{
-        public string Color { get; set; }
-        public int Point { get; set; }
 
-        public Jewel(string color){
+    public class ItemMap {
 
-            Color = color;
-            Point = color switch  {
-                "red" => 100,
-                "blue" => 200,
-                "green" => 300,
-                _ => 0
-            };
+    }
+
+    public class Map {
+
+        public ItemMap[,] mapMatrix ; 
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+
+        public Map(int width, int height) { 
+            Width = width; Height = height;
+            mapMatrix = new ItemMap[width, height];
+            for (int i = 0; i < width; i++) {
+                for (int j = 0; j < height; j++) {
+                    mapMatrix[i,j] = new Empty();
+                 }
+            }
+
         }
-    }
-
-    abstract class ItemMap{
-
-    }
-
-    abstract class Obstacle : ItemMap
-    {
-
-    }
-
-    class Water : Obstacle
-    {
-
-    }
-
-    class Red : Jewel {
-
-        public Red(string s): base(s)
-        {
+        public static void Main(string[] args) {
             
-        }
+        }         
+     }
 
     }
-
-    class Blue : Jewel {
-
-    class Map {
-        public int Width { get; set; }
-        public int Height { get; set; }
-
-        private ItemMap[,] Matrix = new ItemMap[10,10];
-    }
-}
