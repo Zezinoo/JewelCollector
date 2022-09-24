@@ -20,8 +20,21 @@
             }
 
         }
-        public static void Main(string[] args) {
-            
+                
+        void Print() {
+            for (int i = 0; i < mapMatrix.GetLength(0); i++) {
+                for (int j = 0; j < mapMatrix.GetLength(1); j++) {
+                Console.Write(mapMatrix[i, j]);
+                }
+                Console.Write("\n");
+            }
+        }
+     
+        public static void Main(string[] args) {   
+        
+        Map map = new Map(10,10);
+        map.Print();
+        
         }         
      }
 
