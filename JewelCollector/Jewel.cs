@@ -1,18 +1,42 @@
 namespace JewelCollector;
 
-    public class Jewel{
-        public string Color { get; set; }
-        public int Point { get; set; }
+    public abstract class Jewel : ItemMap{
+        public int Points ;
 
-        public Jewel(string color){
+    }
 
-            Color = color;
-            Point = color switch  {
-                "red" => 100,
-                "blue" => 200,
-                "green" => 300,
-                _ => 0
-            };
+    public class Red : Jewel {
+        
+        public override string ToString() {
+            return "JR ";
+        }
+        public Red(){
+            this.Points = 100;
         }
     }
+
+    
+    public class Green : Jewel {
+        
+        public override string ToString() {
+            return "JG ";
+        }
+        public Green(){
+            this.Points = 50;
+        }
+    }
+
+    
+    public class Blue : Jewel {
+        
+        public override string ToString() {
+            return "JB ";
+        }
+        public Blue(){
+            this.Points = 10;
+        }
+    }   
+    
+
+
 

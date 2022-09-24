@@ -29,10 +29,15 @@
                 Console.Write("\n");
             }
         }
+
+        void Insert (ItemMap Item , int i, int j){
+            mapMatrix[i,j] = Item;
+        }
      
-        public static void Main(string[] args) {   
+        public static void Main() {   
         
         Map map = new Map(10,10);
+        map.Insert(new Red(),0,0);
         map.Print();
         
         }         
