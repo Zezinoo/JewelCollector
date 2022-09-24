@@ -33,11 +33,33 @@
         void Insert (ItemMap Item , int i, int j){
             mapMatrix[i,j] = Item;
         }
+
+        void firstLevelLayout (Map map){
+            map.Insert(new Red(),1, 9);
+            map.Insert(new Red(),8,8);
+            map.Insert(new Green(),8,8);
+            map.Insert(new Green(),7,6);
+            map.Insert(new Blue(),3,4);
+            map.Insert(new Blue(),2,1);
+
+            map.Insert(new Water(),5,0);
+            map.Insert(new Water(),5,1);
+            map.Insert(new Water(),5,2);
+            map.Insert(new Water(),5,3);
+            map.Insert(new Water(),5,4);
+            map.Insert(new Water(),5,5);
+            map.Insert(new Water(),5,6);
+            map.Insert(new Tree(),5,9);
+            map.Insert(new Water(),3,9);
+            map.Insert(new Water(),8,3);
+            map.Insert(new Water(),2,5);
+            map.Insert(new Water(),1,4);
+        }
      
         public static void Main() {   
         
         Map map = new Map(10,10);
-        map.Insert(new Red(),0,0);
+        map.firstLevelLayout(map);
         map.Print();
         
         }         
