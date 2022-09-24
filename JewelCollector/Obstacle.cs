@@ -23,3 +23,9 @@ public class Tree : Obstacle {
     }
 }
 
+public class Radioactive : Obstacle {
+    public override string ToString(){
+        return "!! ";
+    }
+}
+
