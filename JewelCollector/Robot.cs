@@ -90,17 +90,17 @@ public class Robot : ItemMap{
         if( x-1 >= 0){
         if(map.mapMatrix[x-1,y] is Rechargeable r1){
             r1.Recharge(this);
-            map.mapMatrix[x+1,y] = new Empty();    
+            map.mapMatrix[x-1,y] = new Empty();    
         }}
         if( y+1 < map.Height){
         if(map.mapMatrix[x,y+1] is Rechargeable r2){
             r2.Recharge(this);
-            map.mapMatrix[x+1,y] = new Empty();    
+            map.mapMatrix[x,y+1] = new Empty();    
         }}
         if( y-1 >= 0){
         if(map.mapMatrix[x,y-1] is Rechargeable r3){
             r3.Recharge(this);
-            map.mapMatrix[x+1,y] = new Empty();   
+            map.mapMatrix[x,y-1] = new Empty();   
         }}
 
     }
