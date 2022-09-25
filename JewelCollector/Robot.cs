@@ -78,7 +78,8 @@ public class Robot : ItemMap{
     }
 
     public bool isAllowed(int x, int y ){
-        if (map.mapMatrix[x,y] is Empty){
+        if (! (x >= 0 && x<map.Width && y>=0 && y<map.Width)){return false;}
+        if (map.mapMatrix[x,y] is Empty ){
             return true; 
         } 
         else{
