@@ -13,7 +13,7 @@ public class Robot : ItemMap{
     public List<Jewel> bag = new List<Jewel>();
 
     public Robot(Map map ,int x, int y){
-        this.energy = 5;
+        this.energy = 100;
         this.map = map;
         this.x = x;
         this.y = y;
