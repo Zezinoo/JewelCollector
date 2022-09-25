@@ -94,7 +94,7 @@ public class Map {
                 mapMatrix[x_old,y_old] = new Empty();
             }
             if(mapMatrix[x_new,y_new] is Radioactive){
-                player.energy = player.energy - 4;
+                player.energy = player.energy - 30;
                 mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
                 mapMatrix[x_old,y_old] = new Empty();
                 Console.WriteLine("Ran into Radioactive");

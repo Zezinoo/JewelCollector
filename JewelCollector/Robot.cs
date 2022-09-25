@@ -107,19 +107,19 @@ public class Robot : ItemMap{
     public void checkRadioctive(){
         if(x+1 < map.Width){
         if(map.mapMatrix[x+1,y] is Radioactive r){
-            this.energy = this.energy -5; 
+            this.energy = this.energy -10; 
         }}
         if( x-1 >= 0){
         if(map.mapMatrix[x-1,y] is Radioactive r1){ 
-            this.energy = this.energy -5;   
+            this.energy = this.energy -10;   
         }}
         if( y+1 < map.Height){
         if(map.mapMatrix[x,y+1] is Radioactive r2){
-            this.energy = this.energy -5;    
+            this.energy = this.energy -10;    
         }}
         if( y-1 >= 0){
         if(map.mapMatrix[x,y-1] is Radioactive r3){
-            this.energy = this.energy -5;   
+            this.energy = this.energy -10;   
         }}
     }
     public bool isAllowed(int x, int y ){
