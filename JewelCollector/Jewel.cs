@@ -8,6 +8,7 @@ namespace JewelCollector;
     public class Red : Jewel {
         
         public override string ToString() {
+            Console.ForegroundColor= ConsoleColor.Red;
             return "JR ";
         }
         public Red(){
@@ -19,6 +20,7 @@ namespace JewelCollector;
     public class Green : Jewel {
         
         public override string ToString() {
+            Console.ForegroundColor= ConsoleColor.Green;
             return "JG ";
         }
         public Green(){
@@ -30,6 +32,7 @@ namespace JewelCollector;
     public class Blue : Jewel , Rechargeable {
         
         public override string ToString() {
+            Console.ForegroundColor= ConsoleColor.Blue;
             return "JB ";
         }
         public void Recharge(Robot player){

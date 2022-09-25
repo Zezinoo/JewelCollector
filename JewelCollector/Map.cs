@@ -88,6 +88,7 @@ public class Map {
         }
 
         public void UpdateLayout(Robot player , int x_old, int y_old , int x_new, int y_new){
+            
             Console.Clear();
             if(mapMatrix[x_new,y_new] is Empty){
                 mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
@@ -101,7 +102,7 @@ public class Map {
             }
 
             else{}
-            Print();
+            player.map.Print();
         }
         public bool noJewelsLeft(Map map){
             for (int i = 0; i < mapMatrix.GetLength(0); i++) {
