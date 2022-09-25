@@ -4,6 +4,7 @@ public class Robot : ItemMap{
     public override string ToString(){
         return "ME";
     }
+    public int points { get; set; }
     public Map map ;
     public int x{ get; set; }
     public int y { get; set; }
@@ -18,20 +19,25 @@ public class Robot : ItemMap{
         map.Print();
     }
     public void MoveNorth(){
-        map.UpdateLayout(x,y,x,y+1);
-        this.y++;
-    }
-    public void MoveSouth(){
-        map.UpdateLayout(x,y,x,y-1);
-        this.y--;
-    }
-    public void MoveEast(){
         map.UpdateLayout(x,y,x-1,y);
         this.x--;
     }
-    public void MoveWest(){
-        map.UpdateLayout(x,y,x,y+1);
+    public void MoveSouth(){
+        map.UpdateLayout(x,y,x+1,y);
         this.x++;
+    }
+    public void MoveEast(){
+        map.UpdateLayout(x,y,x,y+1);
+        this.y++;
+    }
+    public void MoveWest(){
+        map.UpdateLayout(x,y,x,y-1);
+        this.y--;
+    }
+    public void CollectJewel(){
+        if(map.mapMatrix[x+1,y] is Jewel){
+            
+        }
     }
     
     

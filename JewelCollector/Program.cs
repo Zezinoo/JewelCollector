@@ -58,9 +58,12 @@
             
 
         public void UpdateLayout(int x_old, int y_old , int x_new, int y_new){
-            mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
-            mapMatrix[x_old,y_old] = new Empty();
-            Print();
+            if(mapMatrix[x_new,y_new] is Empty){
+                mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
+                mapMatrix[x_old,y_old] = new Empty();
+                Print();
+            }
+            else{}
         }
      }
      public class JewelCollector{
@@ -85,11 +88,11 @@
                 } else if (command.Equals("w")) {
                     player.MoveNorth();
                 } else if (command.Equals("a")) {
-                    player.MoveEast();
+                    player.MoveWest();
                 } else if (command.Equals("s")) {
                     player.MoveSouth();
                 } else if (command.Equals("d")) {
-                    player.MoveWest();
+                    player.MoveEast();
                 } else if (command.Equals("g")) {
                     
                 }
