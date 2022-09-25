@@ -53,7 +53,7 @@ public class Map {
         }
             
         public void randomLevelLayout (Map map , int jewel_numbers , int water_numbers , int tree_numbers){
-            Random random = new Random(2);
+            Random random = new Random();
             for(int x = 0; x <jewel_numbers; x++){
                 int xRandom = random.Next(0,map.Width);
                 int yRandom = random.Next(0,map.Height);
@@ -87,11 +87,19 @@ public class Map {
             }
         }
 
-        public void UpdateLayout(int x_old, int y_old , int x_new, int y_new){
+        public void UpdateLayout(Robot player , int x_old, int y_old , int x_new, int y_new){
+            Console.Clear();
             if(mapMatrix[x_new,y_new] is Empty){
                 mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
                 mapMatrix[x_old,y_old] = new Empty();
             }
+            if(mapMatrix[x_new,y_new] is Radioactive){
+                player.energy = player.energy - 4;
+                mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
+                mapMatrix[x_old,y_old] = new Empty();
+                Console.WriteLine("Ran into Radioactive");
+            }
+
             else{}
             Print();
         }

@@ -23,28 +23,28 @@ public class Robot : ItemMap{
     }
     public void MoveNorth(){
         if (isAllowed(x-1,y)){
-        map.UpdateLayout(x,y,x-1,y);
+        map.UpdateLayout(this,x,y,x-1,y);
         this.x--;
         this.energy--;
         }
     }
     public void MoveSouth(){
         if (isAllowed(x+1,y)){
-        map.UpdateLayout(x,y,x+1,y);
+        map.UpdateLayout(this,x,y,x+1,y);
         this.x++;
         this.energy--;
         }
     }
     public void MoveEast(){
         if (isAllowed(x,y+1)){
-        map.UpdateLayout(x,y,x,y+1);
+        map.UpdateLayout(this,x,y,x,y+1);
         this.y++;
         this.energy--;
         }
     }
     public void MoveWest(){
         if (isAllowed(x,y-1)){
-        map.UpdateLayout(x,y,x,y-1);
+        map.UpdateLayout(this,x,y,x,y-1);
         this.y--;
         this.energy--;
         }
@@ -103,10 +103,28 @@ public class Robot : ItemMap{
             map.mapMatrix[x,y-1] = new Empty();   
         }}
     }
-        
+
+    public void checkRadioctive(){
+        if(x+1 < map.Width){
+        if(map.mapMatrix[x+1,y] is Radioactive r){
+            this.energy = this.energy -5; 
+        }}
+        if( x-1 >= 0){
+        if(map.mapMatrix[x-1,y] is Radioactive r1){ 
+            this.energy = this.energy -5;   
+        }}
+        if( y+1 < map.Height){
+        if(map.mapMatrix[x,y+1] is Radioactive r2){
+            this.energy = this.energy -5;    
+        }}
+        if( y-1 >= 0){
+        if(map.mapMatrix[x,y-1] is Radioactive r3){
+            this.energy = this.energy -5;   
+        }}
+    }
     public bool isAllowed(int x, int y ){
         if (! (x >= 0 && x<map.Width && y>=0 && y<map.Width)){return false;}
-        if (map.mapMatrix[x,y] is Empty ){
+        if (map.mapMatrix[x,y] is Empty || map.mapMatrix[x,y] is Radioactive){
             return true; 
         } 
         else{

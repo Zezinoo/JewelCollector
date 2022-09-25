@@ -36,18 +36,21 @@
                 } else if (command.Equals("g")) {
                     player.CollectJewel();
                     player.GetRechargeable();
+                    Console.Clear();
                     map.Print();
                 }
+                player.checkRadioctive();
                 Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()} Energy : {player.energy}");
                 if(player.energy < 0){Console.WriteLine("No energy left, you lost") ; running = false;}
                 if(map.noJewelsLeft(map) && level<30){
 
                     level++;Console.WriteLine("Level: " + level);
+                    int points = player.points; int energy = player.energy;
                     int w = map.Width; int h = map.Height;
                     map = new Map(w+1, h+1);
                     int[] num = map.newItemMapQuantity(map);
                     map.randomLevelLayout(map,num[0],num[1],num[2]);
-                    player = new Robot(map,0,0);
+                    player = new Robot(map,0,0); player.points = points; player.energy = energy;
                 }
                 if(level == 30){Console.WriteLine("Game Over"); running = false;}
             } while (running);
