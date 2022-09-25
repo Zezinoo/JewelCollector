@@ -50,7 +50,7 @@ public class Robot : ItemMap{
         }
     }
     public void CollectJewel(){
-        if(x+1 <= map.Width){
+        if(x+1 < map.Width){
         if(map.mapMatrix[x+1,y] is Jewel jewel){
             this.points += jewel.Points;
             this.bag.Add(jewel);
@@ -62,7 +62,7 @@ public class Robot : ItemMap{
             this.bag.Add(jewel1);
             map.mapMatrix[x-1,y] = new Empty();  
         }}
-        if( y+1 <= map.Height){
+        if( y+1 < map.Height){
         if(map.mapMatrix[x,y+1] is Jewel jewel2){
             this.points += jewel2.Points;
             this.bag.Add(jewel2);
