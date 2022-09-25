@@ -27,10 +27,13 @@ namespace JewelCollector;
     }
 
     
-    public class Blue : Jewel {
+    public class Blue : Jewel , Rechargeable {
         
         public override string ToString() {
             return "JB ";
+        }
+        public void Recharge(Robot player){
+            player.energy  = player.energy + 5;
         }
         public Blue(){
             this.Points = 10;

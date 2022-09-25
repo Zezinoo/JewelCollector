@@ -83,6 +83,12 @@
                 int yRandom = random.Next(0,map.Height);
                 this.Insert(new Water(), xRandom, yRandom);
             }
+
+            for(int x = 0; x < jewel_numbers-1; x++){
+                int xRandom = random.Next(0,map.Width);
+                int yRandom = random.Next(0,map.Height);
+                this.Insert(new Radioactive(), xRandom, yRandom);
+            }
         }
 
         public void UpdateLayout(int x_old, int y_old , int x_new, int y_new){
@@ -150,11 +156,12 @@
                     player.MoveEast();
                 } else if (command.Equals("g")) {
                     player.CollectJewel();
-                    player.map.Print();
+                    player.GetRechargeable();
+                    map.Print();
                 }
                 Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()} Energy : {player.energy}");
                 if(player.energy < 0){Console.WriteLine("No energy left, you lost") ; running = false;}
-                if(map.noJewelsLeft(map)){
+                if(map.noJewelsLeft(map) && level<30){
 
                     level++;Console.WriteLine("Level: " + level);
                     int w = map.Width; int h = map.Height;
@@ -163,6 +170,7 @@
                     map.randomLevelLayout(map,num[0],num[1],num[2]);
                     player = new Robot(map,0,0);
                 }
+                if(level == 30){Console.WriteLine("Game Over"); running = false;}
             } while (running);
         
         }  

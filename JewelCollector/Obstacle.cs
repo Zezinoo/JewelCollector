@@ -17,9 +17,12 @@ public class Water : Obstacle {
     }
 }
 
-public class Tree : Obstacle {
+public class Tree : Obstacle, Rechargeable {
         public override string ToString(){
         return "$$ ";
+        }
+        public void Recharge(Robot player){
+            player.energy = player.energy +3;
     }
 }
 

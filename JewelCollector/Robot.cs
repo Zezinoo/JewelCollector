@@ -54,28 +54,58 @@ public class Robot : ItemMap{
         if(map.mapMatrix[x+1,y] is Jewel jewel){
             this.points += jewel.Points;
             this.bag.Add(jewel);
+            if(jewel is Rechargeable r){r.Recharge(this);}
             map.mapMatrix[x+1,y] = new Empty();  
         }}
         if( x-1 >= 0){
         if(map.mapMatrix[x-1,y] is Jewel jewel1){
             this.points += jewel1.Points;
             this.bag.Add(jewel1);
+            if(jewel1 is Rechargeable r){r.Recharge(this);}
             map.mapMatrix[x-1,y] = new Empty();  
         }}
         if( y+1 < map.Height){
         if(map.mapMatrix[x,y+1] is Jewel jewel2){
             this.points += jewel2.Points;
             this.bag.Add(jewel2);
+            if(jewel2 is Rechargeable r){r.Recharge(this);}
             map.mapMatrix[x,y+1] = new Empty();  
         }}
         if( y-1 >= 0){
         if(map.mapMatrix[x,y-1] is Jewel jewel3){
             this.points += jewel3.Points;
             this.bag.Add(jewel3);
+            if(jewel3 is Rechargeable r){r.Recharge(this);}
             map.mapMatrix[x,y-1] = new Empty();  
         }}
 
     }
+    
+    public void GetRechargeable() {
+        if(x+1 < map.Width){
+        if(map.mapMatrix[x+1,y] is Rechargeable r){
+            r.Recharge(this);
+            map.mapMatrix[x+1,y] = new Empty();  
+        }}
+        if( x-1 >= 0){
+        if(map.mapMatrix[x-1,y] is Rechargeable r1){
+            r1.Recharge(this);
+            map.mapMatrix[x+1,y] = new Empty();    
+        }}
+        if( y+1 < map.Height){
+        if(map.mapMatrix[x,y+1] is Rechargeable r2){
+            r2.Recharge(this);
+            map.mapMatrix[x+1,y] = new Empty();    
+        }}
+        if( y-1 >= 0){
+        if(map.mapMatrix[x,y-1] is Rechargeable r3){
+            r3.Recharge(this);
+            map.mapMatrix[x+1,y] = new Empty();   
+        }}
+
+    }
+        
+        
 
     public bool isAllowed(int x, int y ){
         if (! (x >= 0 && x<map.Width && y>=0 && y<map.Width)){return false;}
