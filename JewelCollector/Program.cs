@@ -66,6 +66,12 @@
                 if(player.energy < 0){Console.WriteLine("No energy left, you lost") ; running = false;}
                 if(map.noJewelsLeft(map) && level<30){
 
+                    OnMoveNorth -= player.MoveNorth;
+                    OnMoveSouth -= player.MoveSouth;
+                    OnMoveEast -= player.MoveEast;
+                    OnMoveWest -= player.MoveWest;
+                    OnCollect -= player.Collect;
+
                     level++;Console.WriteLine("Level: " + level);
                     int points = player.points; int energy = player.energy;
                     int w = map.Width; int h = map.Height;
@@ -73,6 +79,12 @@
                     int[] num = map.newItemMapQuantity(map);
                     map.randomLevelLayout(map,num[0],num[1],num[2]);
                     player = new Robot(map,0,0); player.points = points; player.energy = energy;
+
+                    OnMoveNorth += player.MoveNorth;
+                    OnMoveSouth += player.MoveSouth;
+                    OnMoveEast += player.MoveEast;
+                    OnMoveWest += player.MoveWest;
+                    OnCollect += player.Collect;
                 }
                 if(level == 30){Console.WriteLine("Game Over"); running = false;}
             } while (running);
