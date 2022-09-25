@@ -61,9 +61,9 @@
             if(mapMatrix[x_new,y_new] is Empty){
                 mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
                 mapMatrix[x_old,y_old] = new Empty();
-                Print();
             }
             else{}
+            Print();
         }
      }
      public class JewelCollector{

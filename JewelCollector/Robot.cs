@@ -19,24 +19,41 @@ public class Robot : ItemMap{
         map.Print();
     }
     public void MoveNorth(){
+        if (isAllowed(x-1,y)){
         map.UpdateLayout(x,y,x-1,y);
         this.x--;
+        }
     }
     public void MoveSouth(){
+        if (isAllowed(x+1,y)){
         map.UpdateLayout(x,y,x+1,y);
         this.x++;
+        }
     }
     public void MoveEast(){
+        if (isAllowed(x,y+1)){
         map.UpdateLayout(x,y,x,y+1);
         this.y++;
+        }
     }
     public void MoveWest(){
+        if (isAllowed(x,y-1)){
         map.UpdateLayout(x,y,x,y-1);
         this.y--;
+        }
     }
     public void CollectJewel(){
         if(map.mapMatrix[x+1,y] is Jewel){
             
+        }
+    }
+
+    public bool isAllowed(int x, int y ){
+        if (map.mapMatrix[x,y] is Empty){
+            return true; 
+        } 
+        else{
+            return false;
         }
     }
     
