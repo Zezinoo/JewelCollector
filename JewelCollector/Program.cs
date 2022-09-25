@@ -94,8 +94,10 @@
                 } else if (command.Equals("d")) {
                     player.MoveEast();
                 } else if (command.Equals("g")) {
-                    
+                    player.CollectJewel();
+                    map.Print();
                 }
+                Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()}");
             } while (running);
         
         }  
