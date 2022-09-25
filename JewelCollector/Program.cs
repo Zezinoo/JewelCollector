@@ -65,14 +65,14 @@
                 Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()} Energy : {player.energy}");
                 if(player.energy < 0){Console.WriteLine("No energy left, you lost") ; running = false;}
                 if(map.noJewelsLeft(map) && level<30){
-
+                    Console.Clear();
                     OnMoveNorth -= player.MoveNorth;
                     OnMoveSouth -= player.MoveSouth;
                     OnMoveEast -= player.MoveEast;
                     OnMoveWest -= player.MoveWest;
                     OnCollect -= player.Collect;
-
-                    level++;Console.WriteLine("Level: " + level);
+                    Console.WriteLine("Level Passed");
+                    level++;Console.WriteLine("Current Level is : " + level);
                     int points = player.points; int energy = player.energy;
                     int w = map.Width; int h = map.Height;
                     map = new Map(w+1, h+1);

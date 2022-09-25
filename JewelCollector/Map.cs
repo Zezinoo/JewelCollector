@@ -88,11 +88,8 @@ public class Map {
         }
 
         public void UpdateLayout(Robot player , int x_old, int y_old , int x_new, int y_new){
-            Console.WriteLine("Updating Layout");
-            Console.WriteLine("Player Map");
-            player.map.Print();
-            Console.WriteLine("Debug");
-            //Console.Clear();
+            
+            Console.Clear();
             if(mapMatrix[x_new,y_new] is Empty){
                 mapMatrix[x_new,y_new] = mapMatrix[x_old,y_old];
                 mapMatrix[x_old,y_old] = new Empty();
