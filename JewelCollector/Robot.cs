@@ -2,6 +2,7 @@ namespace JewelCollector;
 
 public class Robot : ItemMap{
     public override string ToString(){
+        Console.ForegroundColor= ConsoleColor.White;
         return "ME";
     }
     public int points { get; set; }
@@ -13,7 +14,7 @@ public class Robot : ItemMap{
     public List<Jewel> bag = new List<Jewel>();
 
     public Robot(Map map ,int x, int y){
-        this.energy = 100;
+        this.energy = 5;
         this.map = map;
         this.x = x;
         this.y = y;

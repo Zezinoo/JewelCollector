@@ -1,8 +1,4 @@
 ﻿namespace JewelCollector {
-
-    public abstract class ItemMap {
-
-    }
  
 
      public class JewelCollector{
@@ -62,6 +58,7 @@
                     
                 }
                 player.checkRadioctive();
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()} Energy : {player.energy}");
                 if(player.energy < 0){Console.WriteLine("No energy left, you lost") ; running = false;}
                 if(map.noJewelsLeft(map) && level<30){
@@ -78,8 +75,7 @@
                     map = new Map(w+1, h+1);
                     int[] num = map.newItemMapQuantity(map);
                     map.randomLevelLayout(map,num[0],num[1],num[2]);
-                    player = new Robot(map,0,0); player.points = points; player.energy = energy;
-
+                    player = new Robot(map,0,0); player.points = points; player.energy = Math.Min(energy,10);
                     OnMoveNorth += player.MoveNorth;
                     OnMoveSouth += player.MoveSouth;
                     OnMoveEast += player.MoveEast;
