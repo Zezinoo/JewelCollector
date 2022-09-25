@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\msft38\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj": {}
+    "C:\\Users\\rayun\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj": {}
   },
   "projects": {
-    "C:\\Users\\msft38\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj": {
+    "C:\\Users\\rayun\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\msft38\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj",
+        "projectUniqueName": "C:\\Users\\rayun\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj",
         "projectName": "JewelCollector",
-        "projectPath": "C:\\Users\\msft38\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj",
-        "packagesPath": "C:\\Users\\msft38\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\msft38\\Desktop\\JewelCollector\\JewelCollector\\obj\\",
+        "projectPath": "C:\\Users\\rayun\\Desktop\\JewelCollector\\JewelCollector\\JewelCollector.csproj",
+        "packagesPath": "C:\\Users\\rayun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rayun\\Desktop\\JewelCollector\\JewelCollector\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\msft38\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\rayun\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
