@@ -41,20 +41,21 @@
             do {
 
                 Console.WriteLine("Enter the command: ");
-                string? command = Console.ReadLine();
+                ConsoleKeyInfo cmd = Console.ReadKey(true);
+                string command = cmd.Key.ToString();
 
-                if (command == "" || command==null){Console.WriteLine("Enter valid command");continue;}
-                if (command.Equals("q")) {
+                if (command.Equals("") || command==null){Console.WriteLine("Enter valid command");continue;}
+                if (command.Equals("Q")) {
                     running = false;
-                } else if (command.Equals("w")) {
+                } else if (command.Equals("W")) {
                     OnMoveNorth();
-                } else if (command.Equals("a")) {
+                } else if (command.Equals("A")) {
                     OnMoveWest();
-                } else if (command.Equals("s")) {
+                } else if (command.Equals("S")) {
                     OnMoveSouth();
-                } else if (command.Equals("d")) {
+                } else if (command.Equals("D")) {
                     OnMoveEast();
-                } else if (command.Equals("g")) {
+                } else if (command.Equals("G")) {
                     OnCollect();
                     
                 }
