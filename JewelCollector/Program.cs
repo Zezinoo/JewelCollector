@@ -57,6 +57,8 @@
                     OnMoveEast();
                 } else if (command.Equals("G")) {
                     OnCollect();
+                    Console.Clear();
+                    map.Print();
                     
                 }
                 player.checkRadioctive();
