@@ -3,8 +3,23 @@
     public abstract class ItemMap {
 
     }
+ 
 
      public class JewelCollector{
+
+        delegate void MoveNorth();
+        delegate void MoveSouth();
+        delegate void MoveEast();
+        delegate void MoveWest();
+        delegate void Collect();
+
+        static event MoveNorth? OnMoveNorth; 
+        static event MoveSouth? OnMoveSouth; 
+        static event MoveEast? OnMoveEast;
+
+        static event MoveWest? OnMoveWest;
+        static event Collect? OnCollect;
+
         
         public static void Main() {   
             Map map = new Map(10,10);
@@ -14,6 +29,12 @@
 
             int level = 1; Console.WriteLine("Level: " + level);
             
+            OnMoveNorth += player.MoveNorth;
+            OnMoveSouth += player.MoveSouth;
+            OnMoveEast += player.MoveEast;
+            OnMoveWest += player.MoveWest;
+            OnCollect += player.Collect;
+
 
             bool running = true;
   
@@ -26,18 +47,16 @@
                 if (command.Equals("q")) {
                     running = false;
                 } else if (command.Equals("w")) {
-                    player.MoveNorth();
+                    OnMoveNorth();
                 } else if (command.Equals("a")) {
-                    player.MoveWest();
+                    OnMoveWest();
                 } else if (command.Equals("s")) {
-                    player.MoveSouth();
+                    OnMoveSouth();
                 } else if (command.Equals("d")) {
-                    player.MoveEast();
+                    OnMoveEast();
                 } else if (command.Equals("g")) {
-                    player.CollectJewel();
-                    player.GetRechargeable();
-                    Console.Clear();
-                    map.Print();
+                    OnCollect();
+                    
                 }
                 player.checkRadioctive();
                 Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()} Energy : {player.energy}");

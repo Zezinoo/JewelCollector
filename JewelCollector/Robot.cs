@@ -131,5 +131,12 @@ public class Robot : ItemMap{
             return false;
         }
     }
+
+    public void Collect(){
+        this.CollectJewel();
+        this.GetRechargeable();
+        Console.Clear();
+        map.Print();
+    }
     
 }
