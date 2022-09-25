@@ -5,12 +5,15 @@ public class Robot : ItemMap{
         return "ME";
     }
     public int points { get; set; }
+
+    public int energy { get; set; }
     public Map map ;
     public int x{ get; set; }
     public int y { get; set; }
     public List<Jewel> bag = new List<Jewel>();
 
     public Robot(Map map ,int x, int y){
+        this.energy = 5;
         this.map = map;
         this.x = x;
         this.y = y;
@@ -22,24 +25,28 @@ public class Robot : ItemMap{
         if (isAllowed(x-1,y)){
         map.UpdateLayout(x,y,x-1,y);
         this.x--;
+        this.energy--;
         }
     }
     public void MoveSouth(){
         if (isAllowed(x+1,y)){
         map.UpdateLayout(x,y,x+1,y);
         this.x++;
+        this.energy--;
         }
     }
     public void MoveEast(){
         if (isAllowed(x,y+1)){
         map.UpdateLayout(x,y,x,y+1);
         this.y++;
+        this.energy--;
         }
     }
     public void MoveWest(){
         if (isAllowed(x,y-1)){
         map.UpdateLayout(x,y,x,y-1);
         this.y--;
+        this.energy--;
         }
     }
     public void CollectJewel(){
