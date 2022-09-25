@@ -102,11 +102,8 @@ public class Robot : ItemMap{
             r3.Recharge(this);
             map.mapMatrix[x,y-1] = new Empty();   
         }}
-
     }
         
-        
-
     public bool isAllowed(int x, int y ){
         if (! (x >= 0 && x<map.Width && y>=0 && y<map.Width)){return false;}
         if (map.mapMatrix[x,y] is Empty ){
@@ -117,6 +114,4 @@ public class Robot : ItemMap{
         }
     }
     
-    
-
 }
