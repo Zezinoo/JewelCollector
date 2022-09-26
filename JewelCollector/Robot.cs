@@ -9,7 +9,7 @@ public class Robot : ItemMap{
     /// <returns>Robot symbol</returns>
     public override string ToString(){
         Console.ForegroundColor= ConsoleColor.White;
-        return "ME";
+        return "ME ";
     }
     /// <summary>
     /// Robot points
