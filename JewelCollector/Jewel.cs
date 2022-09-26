@@ -3,6 +3,9 @@ namespace JewelCollector;
 /// Abstract class that represents a Jewel object on the map.
 /// </summary>
     public abstract class Jewel : ItemMap{
+        /// <summary>
+        /// Points value of the current player
+        /// </summary>
         public int Points ;
 
     }

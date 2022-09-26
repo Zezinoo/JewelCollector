@@ -1,5 +1,7 @@
 namespace JewelCollector;
-
+/// <summary>
+/// Class that represents the map where the game is played
+/// </summary>
 public class Map {
         /// <summary>
         /// Matrix of ItemMaps that represents the game map

@@ -1,5 +1,7 @@
 namespace JewelCollector;
-
+/// <summary>
+/// Class that represents the player on the map
+/// </summary>
 public class Robot : ItemMap{
     /// <summary>
     /// Overrides To string method so correct symbol is printed on map
@@ -92,6 +94,9 @@ public class Robot : ItemMap{
         this.energy--;
         }
     }
+    /// <summary>
+    /// This methods checks for Jewels on adjacent positions , that is , on a cross shape, and collects it to the bag.
+    /// </summary>
     public void CollectJewel(){
         if(x+1 < map.Width){
         if(map.mapMatrix[x+1,y] is Jewel jewel){
@@ -149,6 +154,9 @@ public class Robot : ItemMap{
         }}
     }
 
+    /// <summary>
+    /// Checks if adjacent positions are an object of Class Radioactive
+    /// </summary>
     public void checkRadioctive(){
         if(x+1 < map.Width){
         if(map.mapMatrix[x+1,y] is Radioactive r){
