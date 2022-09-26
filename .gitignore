@@ -402,3 +402,7 @@ FodyWeavers.xsd
 *.apk
 *.pdb
 *.cache
+
+latex/
+obj/
+bin/
