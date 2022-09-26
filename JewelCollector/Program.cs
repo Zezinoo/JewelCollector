@@ -1,6 +1,8 @@
 ﻿namespace JewelCollector {
  
-
+    /// <summary>
+    /// Class that contains methods to run the game
+    /// </summary>
      public class JewelCollector{
 
         delegate void MoveNorth();
@@ -16,7 +18,9 @@
         static event MoveWest? OnMoveWest;
         static event Collect? OnCollect;
 
-        
+        /// <summary>
+        /// Main method, where the game is ran
+        /// </summary>
         public static void Main() {   
             Map map = new Map(10,10);
             map.firstLevelLayout(map);
@@ -33,7 +37,10 @@
 
 
             bool running = true;
-  
+            /// <summary>
+            /// Do-while loop that checks player movement, update map , checks game end and level end. While bool runnnig is true the game still runs
+            /// </summary>
+            /// <value></value>
             do {
 
                 Console.WriteLine("Enter the command: ");
@@ -61,7 +68,7 @@
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Points : {player.points} Bag Size : {player.bag.Count()} Energy : {player.energy}");
                 if(player.energy < 0){Console.WriteLine("No energy left, you lost") ; running = false;}
-                if(map.noJewelsLeft(map) && level<30){
+                if(map.noJewelsLeft(map) && level<21){
                     Console.Clear();
                     OnMoveNorth -= player.MoveNorth;
                     OnMoveSouth -= player.MoveSouth;
@@ -75,14 +82,14 @@
                     map = new Map(w+1, h+1);
                     int[] num = map.newItemMapQuantity(map);
                     map.randomLevelLayout(map,num[0],num[1],num[2]);
-                    player = new Robot(map,0,0); player.points = points; player.energy = Math.Min(energy,10);
+                    player = new Robot(map,0,0); player.points = points; player.energy = Math.Max(energy,20);//20 energy so it makes the game easier
                     OnMoveNorth += player.MoveNorth;
                     OnMoveSouth += player.MoveSouth;
                     OnMoveEast += player.MoveEast;
                     OnMoveWest += player.MoveWest;
                     OnCollect += player.Collect;
                 }
-                if(level == 30){Console.WriteLine("Game Over"); running = false;}
+                if(level == 21){Console.WriteLine("Game Over"); running = false;}
             } while (running);
         
         }  
